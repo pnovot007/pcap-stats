@@ -17,3 +17,11 @@ typedef struct pcaprec_hdr_s {
         uint32_t incl_len;       /* number of octets of packet saved in file */
         uint32_t orig_len;       /* actual length of packet */
 } pcaprec_hdr_t;
+
+/*
+typedef struct __attribute__((__packed__)) ip_addr_mask_t {
+        char padding [26];
+        char src_ip [4];
+        char dst_ip [4];
+};
+*/

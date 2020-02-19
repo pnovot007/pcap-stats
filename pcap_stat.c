@@ -8,12 +8,19 @@ int main ()
 
     char * pcapfile = "input.pcap"; 
     FILE * fptr;
-    char buffer[4096];
+    char buffer[64*1024];
+    
     pcap_hdr_t pcap_hdr;
     memset(&pcap_hdr, 0, sizeof(pcap_hdr_t));
+    
     pcaprec_hdr_t pcaprec_hdr;
     memset(&pcaprec_hdr, 0, sizeof(pcaprec_hdr_t));
+    
     uint32_t pckt_cnt=0;
+
+    uint32_t src_ip=0;
+
+
     printf("Opening file...");
 
     fptr = fopen(pcapfile,"rb");
@@ -42,9 +49,21 @@ int main ()
         printf("orig_len: %lu\n", pcaprec_hdr.orig_len);
         
         
-        fread(buffer, pcaprec_hdr.incl_len, 1, fptr);     
+        fread(buffer, pcaprec_hdr.incl_len, 1, fptr);
+        ((char *)&src_ip)[3]=buffer[26];
+        ((char *)&src_ip)[2]=buffer[27];
+        ((char *)&src_ip)[1]=buffer[28];
+        ((char *)&src_ip)[0]=buffer[29];
         
-     printf("----------------------------\n");       
+        //memcpy(&src_ip, &buffer[26], 4);
+        /*src_ip = ((* ip_addr_mask_t) buffer)->src_ip;
+        */
+        printf("............................\n");       
+
+        printf("ts_sec: %lu\n", pcaprec_hdr.ts_sec);
+        printf("src_ip: %x\n", src_ip);
+
+        printf("----------------------------\n");       
 
     }
 
