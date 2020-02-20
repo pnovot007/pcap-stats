@@ -17,18 +17,17 @@ Use make for build, make clean for removing obj and exe files
 * Huge deficit of comments
 
 ## Output example
-
   Opening file...
   Reading header...
   magic_number: 2712847316
-version_major: 2
-version_minor: 4
-thiszone: 0
-sigfigs: 0
-snaplen: 262144
-network: 1
-=============================
-Reading network frames...
+  version_major: 2
+  version_minor: 4
+  thiszone: 0
+  sigfigs: 0
+  snaplen: 262144
+  network: 1
+  =============================
+  Reading network frames...
 
 1576493478
 ------------------------
