@@ -16,11 +16,11 @@ Use make for build, make clean for removing obj and exe files
 * For pure ethernet frames only, VLANs not supported
 * Huge deficit of comments
 
-## Output expample
-'
-Opening file...
-Reading header...
-magic_number: 2712847316
+## Output example
+
+  Opening file...
+  Reading header...
+  magic_number: 2712847316
 version_major: 2
 version_minor: 4
 thiszone: 0
@@ -204,4 +204,4 @@ Reading network frames...
 1	10.216.112.40
 5	10.216.112.23
 Closing file...
-'
+
